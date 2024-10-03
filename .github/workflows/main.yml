@@ -1,16 +1,16 @@
-name: Flutter Build iOS 
+name: Build Flutter iOS App
 
 on:
   push:
     branches:
-      - main # أو الفرع الذي تريده
+      - main # أو أي فرع آخر تريده
   pull_request:
     branches:
-      - main # أو الفرع الذي تريده
+      - main # أو أي فرع آخر تريده
 
 jobs:
   build:
-    runs-on: macos-latest # يتطلب بيئة macOS
+    runs-on: macos-latest # يتطلب بيئة macOS لبناء تطبيقات iOS
 
     steps:
       - name: Checkout code
@@ -19,16 +19,16 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: 'stable' # يمكنك تغيير الإصدار إذا لزم الأمر
+          flutter-version: 'stable' # يمكنك تغيير الإصدار إذا كنت بحاجة إلى إصدار معين
 
       - name: Install dependencies
         run: flutter pub get
 
       - name: Build iOS
-        run: flutter build ios --release
+        run: flutter build ios --release --no-codesign
 
       - name: Upload IPA
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: MyFlutterApp.ipa
           path: build/ios/iphoneos/Runner.app
