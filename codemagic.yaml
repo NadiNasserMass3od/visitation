@@ -1,0 +1,29 @@
+workflows:
+  build:
+    name: Build Flutter App
+    scripts:
+      - name: Install dependencies
+        script: |
+          flutter pub get
+
+      - name: Run tests
+        script: |
+          flutter test
+
+      - name: Build APK
+        script: |
+          flutter build apk --release
+
+      - name: Build iOS app
+        script: |
+          flutter build ios --release
+
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+      - build/ios/iphoneos/*.ipa
+
+    publishing:
+      scripts:
+        - name: Publish to Play Store
+          script: |
+            # استخدم هنا أي أدوات مثل Fastlane لنشر التطبيق
