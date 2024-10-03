@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:intl/intl.dart';
 import 'package:path/path.dart';
@@ -246,8 +244,21 @@ class DatabaseHelper {
     }
   }
 
-  final Map<String, dynamic> accountCredentials =
-      jsonDecode(dotenv.env['api']!);
+  final Map<String, dynamic> accountCredentials = {
+    "type": "service_account",
+    "project_id": "confessionapp-437117",
+    "private_key_id": "b91e3c17e2335606c74d204cb5040b6fb9120404",
+    "private_key":
+        "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCYv1DzGgkYwpEc\nKq4T5VVL6vvERSmZDEVYngYVjvIExP8igJE5/vK7D6xoE16rtLrvYatBkwud2fG/\nIZXtxT7RLdWwY/0HWprwoldYniMzpCt5Dfk21yPpnj11ZrbMBCqIHpVT8bTpopv1\niasg8m5euWXumd0a1tXDU9LYVR2C+6u6E6GhhTAqvhb3wSJIm7uC3gHHkudWLExs\nkOwbBLI8YbhVHYel4NfjyxH6O3oZoXpZMD6Bl7KebLsWxTcA8/2zxFzXviZK6tvR\nF1Pr0bZEet3Dsoo+RGfdSZvhybJsu7oLr9baQx/ltqrEY7rp8O4rxaepDguv/nOh\nKsryiFYFAgMBAAECggEACRF0mhYd26Mzb7dl8cbv7yuiakbL3yrwFAB/rnh3zEow\ntmjpFkcZPHtD+kLKIEoAvhTvkJtM+YBWnoj9KGpJHiyJLulkvHLH14jfxCJRRy/U\nJ+HpPXT8zBIJpoZkTEzkBIRCS8NCAQvXE/bqGrDh1gxOLaHjU0RVWP0JO7Aj6iJ0\n1tXNuy3geSRByNMmeJcj6ki0pppmk3PMzlQM7Eq9eyubaR7pFtP+SPvx4yVRoWTp\n4IGRXfZJzlDQaeErCa3ClqhTEaVlWdZMvKd2THrEixa/sf8MIIOEaMOoKZ2/Kb18\noOOOFhFd/oII/cyxV9XN8of70l1bIlaPUrcptfCYmQKBgQDHEmZKB5Kbqh7VqQZq\naPG3r52oN20Y3ESO7fuX2R/oSvHxysDBcjeufEdMghEZDvmyB1rw3k/8nUjky4O5\nObHjsGXJcB+j/KATsLI5J0yFBQBUfjhF+k8xN75I4t7eC4iL23gyxVRNjo6B9XNN\nwo4lo22Z1dqRMwPPIiXLwbU0zQKBgQDEbZoPLSUeYQY7ft0+BKJ/TGRtadmzT8ls\ndPhN5uK2929PRK25Rf8NaL/vT3TcEXIwe1Joh8h9uYMQMviozaMq6XeyBM+LYw7A\n5FNXqqySB0kBVb8VEYgHPN+IZ7BNGgwF+mIdVnQStvSbgOh9CsEiWz6d3WNQIo+l\nWZDBM/7mGQKBgQCjlxs3+sEf6s0sB5qeF1+L82U7t1CP/XLZgfge8O6nle79JAEC\n9zmKydZNqRUj4oqPIjw5dHeGwDoGyreUnzTwRyVeRCW8PP3PMIVFMmZPaay7wn28\nA9bQO17DxqwfDJtJUzGTh1Wf5mZ1pZ77Z8YoaATJRlQ2vhWDQiyNJMIkgQKBgBM1\niLBdQNkEsgBVerta5q0+Qj/07wY7Ej6Z/cJYhulPr0H4PGj28GdWTBbSFWKEDj+x\nf7CbPr8Uyj1mTqzrVz6WEE+Hauh9qm6wpXnYRgIN1lTcFtCvozbZ/B4xzarslipr\nfvbRgo5l9+vRImtABv0eITR89v5aMuP/q0lJlW7ZAoGBAIAiRABhEyMhgl9OgOOY\nCY91X3gAyRShwtd8BfzGvqPYsSJzrGMQkKgXQ3RZKc4lmMIHmUpczB1DBqNNwRn7\nO2HFSvf8yuqizQ3ipDFkYRkzcCKe+1WvrC0Lhcjh32Un6W4zVAi5kcs/ksrqQyAA\nieftKKbARtc9vB6iB0fOXmMH\n-----END PRIVATE KEY-----\n",
+    "client_email":
+        "confessionapp@confessionapp-437117.iam.gserviceaccount.com",
+    "client_id": "106714545580337330165",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url":
+        "https://www.googleapis.com/robot/v1/metadata/x509/confessionapp%40confessionapp-437117.iam.gserviceaccount.com"
+  };
   String fileId = "1DYg3wtucY_fDKl5TJnEFbhESsAC7xMBb";
   String localExcelPath =
       '/storage/emulated/0/Download/VisitorsBackup/visitors_backup.xlsx';
